@@ -1,0 +1,14 @@
+MILESTONE 1
+creare layout composto da header , logo e 
+main che dovrá contenere due caroselli (provare a inserirli sotto forma di componenti) uno per film e uno per serie tv e ad apertura pagina popolare dinamicamente i due caroselli con i film e serie tv piu popolari .
+
+MILESTONE 2
+
+abilitare il componente search bar al filtraggio elementi in base alla ricerca effettuata(sempre utilizzando l'api),
+
+devo popolare dinamicamente in base alla ricerca la sezione film e serie tv.
+
+MILESTONE 3 
+
+aggiungere dettagli elemento dinamicamente (con eventuale aniamzione di ingrandimento su carta da fare dopo)
+
