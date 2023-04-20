@@ -5,8 +5,8 @@
                 <li><span>Title:</span>
                     {{ titlemovie.title }}
                 </li>
-                <li><span>Lenguage:</span> {{titlemovie.original_language}}</li>
-                <li><span>Original Title:</span> {{ titlemovie.original_title }}</li>
+                <li><span>Language:</span> <span :class="'fi fi-'+language"></span></li>
+                <li v-if="!(titlemovie.title === titlemovie.original_title)"><span >Original Title:</span> {{ titlemovie.original_title }}</li>
                 <li> <span>Rating:</span>  {{ titlemovie.vote_average }}</li>
             </ul>
         </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { store } from '../data/store';
 export default {
     name: 'MovieSlide',
@@ -32,6 +32,26 @@ export default {
     },
     methods: {
         
+    },
+    computed:{
+        language(){
+            if(this.titlemovie.original_language == 'en'){
+                return 'gb'
+            } else if (this.titlemovie.original_language == 'undefined'){
+                return 'xx'
+
+            } else if (this.titlemovie.original_language == 'zh'){
+                return 'cn'
+            } else if (this.titlemovie.original_language == 'ja'){
+                return 'jp'
+            }else if (this.titlemovie.original_language == 'ko'){
+                return 'kr'
+            }
+            else {
+                return this.titlemovie.original_language
+            }
+        
+        }
     }
 }
 
