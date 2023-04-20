@@ -2,7 +2,7 @@
     <header>
         <div class="container-fluid d-flex justify-content-between align-items-center h-50 ">
             <div>
-                <h1 class="text-uppercase">boolflix</h1>
+                <img class="w-50 p-1" src="../assets/style/img/logo.png" alt="">
             </div>
             <div>
             <!--from da trasformare in componente -->
