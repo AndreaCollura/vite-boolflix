@@ -4,11 +4,11 @@
         <div class="row p-5">
             <h1 class="text-white " v-if="store.titleListTv.length > 0">Serie TV </h1>
 
-            <SeriesSlide class="keen-slider__slide number-slide1" v-for="(titletv, index) in store.titleListTv"
+            <SeriesSlide v-for="(titletv, index) in store.titleListTv"
                 :key="titletv.index" :titletv="titletv" />
 
             <h1 class="text-white " v-if="store.titleListTv.length > 0">Films </h1>
-            <MovieSlide class="keen-slider__slide number-slide2" v-for="(titlemovie, index) in store.titleListMovie"
+            <MovieSlide  v-for="(titlemovie, index) in store.titleListMovie"
                 :key="titlemovie.index" :titlemovie="titlemovie" />
 
         </div>
