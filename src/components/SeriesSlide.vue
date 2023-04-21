@@ -8,7 +8,8 @@
                 <li><span>Language:</span> <span :class="'fi fi-' + language"></span></li>
                 <li v-if="!(titletv.name === titletv.original_name)"><span>Original Name:</span> {{ titletv.original_name }}
                 </li>
-                <li><span>Rating:</span> <StarRating  :rating="titletv.vote_average " :read-only="true" :round-start-rating="false"  :increment="0.01" :star-size="20" :fixed-points="2" />  </li>
+                <li><span>Rating:</span><span class="stars" ></span>
+                </li>
             </ul>
         </div>
         <img :src="store.imgBsaeUrl + titletv.poster_path">
@@ -17,13 +18,12 @@
 
 <script>
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import StarRating from 'vue-star-rating';
 import { store } from '../data/store';
 export default {
     name: 'SeriesSlide',
     props: ['titletv'],
     components: {
-        StarRating
+        
 
     },
     data() {
@@ -46,7 +46,7 @@ export default {
             } else {
                 return this.titletv.original_language
             }
-        }
+        },
     }
 }
 
@@ -85,9 +85,9 @@ img {
             text-transform: capitalize;
             padding-left: 5px;
 
-            span {
-                color: red;
-            }
+        //     span {
+        //         color: red;
+        //     }
         }
 
 
@@ -109,3 +109,12 @@ img {
 
 
 </style>
+
+
+<!-- // :inline="true" :star-size="20" :read-only="true" :show-rating="false" :rating="5"
+// v-bind:star-size="20" :fixed-points="3" :read-only="true" :fill="titletv.vote_average" :increment="0.01"
+//                 :rating="titletv.vote_average" :round-start-rating="false"  -->
+
+
+
+<!-- :style="$rating" -->

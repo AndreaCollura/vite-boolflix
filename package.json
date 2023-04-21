@@ -23,7 +23,3 @@
   }
 }
 
-
-// :inline="true" :star-size="20" :read-only="true" :show-rating="false" :rating="5"
-// v-bind:star-size="20" :fixed-points="3" :read-only="true" :fill="titletv.vote_average" :increment="0.01"
-//                 :rating="titletv.vote_average" :round-start-rating="false" 

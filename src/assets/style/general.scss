@@ -7,11 +7,11 @@
 @import 'bootstrap/scss/bootstrap';
 
 
-/* :root {
+:root {
     --star-size: 60px;
     --star-color: #fff;
     --star-background: #fc0;
-} */
+} 
 
 
 body{
@@ -27,17 +27,24 @@ body{
 }
 
 
-/* .Stars {
-    --percent: calc(var(--rating) / 10.000 * 100%);
-
+.stars {
+   $percent: calc( $rating / 10 * 100%);
     display: inline-block;
     font-size: 1rem;
     font-family: Times; // make sure ★ appears correctly
     line-height: 1;
-
+    
     &::before {
         content: '★★★★★';
         letter-spacing: 3px;
-        background-color: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+        background: linear-gradient(90deg, rgba(222, 201, 17) $percent, rgb(255, 251, 251) $percent);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
         
-    } */
+        
+        
+        
+        
+    } 
+}
