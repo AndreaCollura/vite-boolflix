@@ -8,13 +8,12 @@
 
 
 import SlidesComp from './SlidesComp.vue';
-/* import MovieSlide from './MovieSlide.vue' */
 import { store } from '../data/store'
 export default {
     name: 'ResultsBox',
     components: {
         SlidesComp,
-        /* MovieSlide */
+        
     },
     data() {
         return {

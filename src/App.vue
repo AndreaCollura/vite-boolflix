@@ -3,8 +3,6 @@
   <!-- jumbo da add in seguito -->
   <main>
     <ResultsBox/>
-
-
   </main>
 </template>
 

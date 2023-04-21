@@ -1,6 +1,6 @@
 <template>
     <h1 class="text-white " v-if="store.titleListTv.length > 0">Tv Series </h1>
-    <div class="container-fluid d-flex ">
+    <div class="container-fluid d-flex flex-wrap ">
         
         <div class="card-title p-0 m-0" v-for="(titletv, index) in store.titleListTv" :key="titletv.index"
             :titletv="titletv">
@@ -83,6 +83,8 @@ export default {
     width: 9rem;
     height: 13.5rem;
     position: relative;
+    transition: 0.3s;
+    
 
     img {
     width: 100%;
@@ -99,7 +101,7 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.89);
+        background: rgba(0, 0, 0, 0.533);
         opacity: 0;
         transition: 0.3s;
         border-radius: 10px;
@@ -135,11 +137,18 @@ export default {
 
 }
 
-.card-title:hover .overlay-info {
-    opacity: 1;
+.card-title:hover{
+
+    z-index: 10000;
     transform: scale(1.2);
+    .overlay-info {
+    opacity: 1;
+    
+} 
 
 }
+
+
 
 .stars {
     --percent: calc(var(--rating) / 10 * 100%);
