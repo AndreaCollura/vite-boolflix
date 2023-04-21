@@ -7,7 +7,7 @@
                 </li>
                 <li><span>Language:</span> <span :class="'fi fi-'+language"></span></li>
                 <li v-if="!(titlemovie.title === titlemovie.original_title)"><span >Original Title:</span> {{ titlemovie.original_title }}</li>
-                <li> <span>Rating:</span>  {{ titlemovie.vote_average }}</li>
+                <li> <span>Rating:</span> <span class="stars" :style="'--rating: '+ titlemovie.vote_average+ ';'"></span> </li>
             </ul>
         </div>
         <img :src="store.imgBsaeUrl + titlemovie.poster_path">
@@ -99,6 +99,24 @@ export default {
     .card-title:hover .overlay-info {
         opacity: 1;
     }
+
+    .stars {
+   --percent: calc( var(--rating) / 10 * 100%);
+    display: inline-block;
+    font-size: 1rem;
+    font-family: Times;
+    line-height: 1;
+    
+    &::before {
+        content: '★★★★★';
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, rgba(222, 201, 17) var(--percent), rgb(255, 251, 251) var(--percent ));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    } 
+}
+
 
 
 </style>

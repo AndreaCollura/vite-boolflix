@@ -8,7 +8,10 @@
                 <li><span>Language:</span> <span :class="'fi fi-' + language"></span></li>
                 <li v-if="!(titletv.name === titletv.original_name)"><span>Original Name:</span> {{ titletv.original_name }}
                 </li>
-                <li><span>Rating:</span><span class="stars" ></span>
+                <li><span>Rating:</span><span class="stars" :style="'--rating: '+ titletv.vote_average+ ';'"></span>
+                </li>
+                <li>
+                    <span>Info:</span> <p class="">{{titletv.overview}}</p>
                 </li>
             </ul>
         </div>
@@ -17,20 +20,25 @@
 </template>
 
 <script>
+
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { store } from '../data/store';
 export default {
     name: 'SeriesSlide',
     props: ['titletv'],
     components: {
+    
+        
         
 
     },
     data() {
         return {
-            store
+            store,
+            
         }
     },
+
     computed: {
         language() {
             if (this.titletv.original_language == 'en') {
@@ -47,12 +55,19 @@ export default {
                 return this.titletv.original_language
             }
         },
+        
+    },
+    mounted(){
+        
     }
 }
 
 </script>
 
 <style lang="scss" scoped>
+
+
+
 img {
     width: 100%;
     border-radius: 10px;
@@ -66,8 +81,7 @@ img {
     .overlay-info {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        padding: 5px;
         position: absolute;
         top: 0;
         left: 0;
@@ -77,6 +91,10 @@ img {
         opacity: 0;
         transition: 0.3s;
         border-radius: 10px;
+        overflow-y:hidden;
+        z-index: 1000;
+        
+        
 
         li {
             color: white;
@@ -84,10 +102,16 @@ img {
             list-style: none;
             text-transform: capitalize;
             padding-left: 5px;
+            
+            
 
-        //     span {
-        //         color: red;
-        //     }
+            span {
+                color: red;
+            }
+            
+            p{
+                white-space:pre-wrap;
+            }
         }
 
 
@@ -97,9 +121,26 @@ img {
 
 .card-title:hover .overlay-info {
     opacity: 1;
+    transform: scale(1.2);
+    
 }
 
-
+.stars {
+   --percent: calc( var(--rating) / 10 * 100%);
+    display: inline-block;
+    font-size: 1rem;
+    font-family: Times;
+    line-height: 1;
+    
+    &::before {
+        content: '★★★★★';
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, rgba(222, 201, 17) var(--percent), rgb(255, 251, 251) var(--percent ));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    } 
+}
 
 
 
@@ -114,7 +155,3 @@ img {
 <!-- // :inline="true" :star-size="20" :read-only="true" :show-rating="false" :rating="5"
 // v-bind:star-size="20" :fixed-points="3" :read-only="true" :fill="titletv.vote_average" :increment="0.01"
 //                 :rating="titletv.vote_average" :round-start-rating="false"  -->
-
-
-
-<!-- :style="$rating" -->

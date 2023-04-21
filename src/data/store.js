@@ -14,6 +14,8 @@ userinput: "",
 imgBsaeUrl: 'https://image.tmdb.org/t/p/w500/',
 
 
+
+
 startSearch() {
     const urltv = this.baseUrl + this.endpoint.tvtitle + this.userinput;
     const urlmovie = this.baseUrl + this.endpoint.movietitle + this.userinput;
@@ -33,5 +35,3 @@ startSearch() {
     },
 });
 
-
-// gb-eng
